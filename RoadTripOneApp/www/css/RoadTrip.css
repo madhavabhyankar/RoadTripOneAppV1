@@ -1,0 +1,24 @@
+﻿body {
+    background-color: #eeeeee;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+.hcenter {
+    display: inline-block;
+    float: none;
+}
+.content-padding {
+    padding-left: 10px;
+    padding-right: 10px
+}
+.moneyGoingOut {
+    background-color: crimson;
+    color: orange
+}
+.moneyComingIn {
+    background-color: aqua;
+    color: black;
+}

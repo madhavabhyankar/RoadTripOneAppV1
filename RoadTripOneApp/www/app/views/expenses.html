@@ -1,0 +1,28 @@
+﻿<div class="row">
+    
+    
+    
+
+    <div class="col-sm-4">
+        <a data-ng-href="#/myroadtrips" class="btn "><i class="pull-left fa fa-backward"></i></a>
+    </div>
+    <div class="col-sm-4">
+        <span class="text-center">Expenses</span>
+    </div>
+    <div class="col-sm-4">
+        <a data-ng-href="#/addExpense/{{roadTripid}}" class="btn pull-right"><i class="fa fa-plus "></i></a>
+    </div>
+    
+</div>
+<div class="row" data-ng-repeat="expense in expenses">
+    <span>{{expense.expenseDate}}</span> - <span>{{expense.dollarAmount}}</span>
+    <br/>
+    <span>{{expense.firstName}} {{expense.lastName}}</span>
+</div>
+
+<div class="footer">
+    <div class="btn btn-group form-control">
+        <a class="btn btn-default col-sm-6" data-ng-href="#/expenses/{{roadTripid}}"><i class="fa fa-dollar"></i></a>
+        <div class="btn btn-default col-sm-6"><i class="fa fa-users"></i></div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+﻿<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Add user to Road Trip
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <input type="hidden" data-ng-model="newUser.roadTripId" />
+                <div class="input-group">
+                    <span class="input-group-addon">@</span>
+                    <input type="text" placeholder="usertoadd@domain.com" data-ng-model="newUser.userToAddEmail">
+                </div>
+                <button class="btn btn-default" data-ng-click="addUser()"><i class="fa fa-user"></i> | Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div data-ng-show="isError">
+        <div class="col-sm-12">
+            <p>{{error.data.exceptionMessage}}</p>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="btn-group-justified">
+        <a class="btn btn-default" data-ng-href="#/tripdetails/{{newUser.tripId}}"><i class="fa fa-undo"></i></a>
+
+    </div>
+</nav>

@@ -1,0 +1,97 @@
+﻿
+<div class="row">
+    <h2 class="text-center">
+        {{routeTripDetails.roadTripName}}
+    </h2>
+</div>
+<div class="row">
+    <h4 class="text-center">
+        Join Code <pre>{{routeTripDetails.roadTripHash}}</pre>
+    </h4>
+    
+</div>
+<div class="row">
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Expenses</div>
+            <div class="panel-body">
+                <div class="alert alert-info">Total Expenses: <span style="font-weight: bolder; color: red">{{roadTripExpenses.totalExpenses | currency}}</span></div>
+            </div>
+                <table class="table">
+                    <tr>
+                        <th>Date</th>
+                        <th>User</th>
+                        <th>Expense</th>
+                        <th>Details</th>
+                    </tr>
+                    <tbody data-ng-repeat="expense in roadTripExpenses.expenses | orderBy:expenseDate">
+                        <tr>
+                            <td>{{expense.expenseDate | date:'MM-dd-yyyy'}}</td>
+                            <td>{{expense.firstName |truncate:1:''}}&nbsp;{{expense.lastName}}</td>
+                            <td>{{expense.dollarAmount | currency}}</td>
+                            <td>{{expense.notes | truncate:15}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Owner</div>
+            <div class="panel-body">
+                <strong>Name:</strong> {{routeTripDetails.ownerFirstName}} {{routeTripDetails.ownerLastName}} <br/>
+                <strong>Total Users:</strong> {{routeTripDetails.users.length}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            My Payouts
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered table-condensed">
+                <tr data-ng-repeat="cost in mySharedCost">
+
+                    <td >{{cost.firstName}} {{cost.lastName}}</td>
+                    <td data-ng-class="cost.amount < 0 ? 'moneyGoingOut': 'moneyComingIn'">
+                        {{cost.amount | currency}}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+<h2>Complete payouts</h2>
+
+<div class="row">
+    <div data-ng-repeat="userCost in completeSharedCost">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{userCost.firstName}}&nbsp;{{userCost.lastName}}</div>
+            <div class="panel-body">
+                <table class="table table-bordered table-condensed">
+                    <tr data-ng-repeat="cost in userCost.payouts">
+
+                        <td>{{cost.firstName}} {{cost.lastName}}</td>
+                        <td data-ng-class="cost.amount < 0 ? 'moneyGoingOut': 'moneyComingIn'">
+                            {{cost.amount | currency}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="btn-group-justified">
+       
+        <a class="btn btn-default " data-ng-href="#/addExpense/{{routeTripDetails.roadTripId}}"><i class="fa fa-dollar"></i></a>
+        <a class="btn btn-default" data-ng-href="#/addUser/{{routeTripDetails.roadTripId}}"><i class="fa fa-users"></i></a>
+        <a class="btn btn-default" href="#/myroadtrips"><i class="fa fa-road"></i></a>
+    </div>
+</nav>

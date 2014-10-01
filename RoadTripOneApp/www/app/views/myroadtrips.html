@@ -1,0 +1,37 @@
+﻿<div data-ng-hide="roadTripsExist">
+    <div class="jumbotron">
+        <h2 class="text-center">Looks like you don't have any Road Trips</h2>
+        <p class="text-center">
+            <a href="#/addnewroadtrip" class="btn btn-default"><i class="fa fa-plus"></i> | Add New </a>
+            <a href="#/joinRoadTrip" class="btn btn-default"><i class="fa fa-sign-in"></i> | Join </a>
+        </p>
+
+    </div>
+</div>
+<div data-ng-hide="!roadTripsExist">
+    <div class="row">
+        <div class="text-center input-lg">
+            Road Trips
+        </div>
+
+    </div>
+
+    <div class="row">
+
+
+        <div data-ng-repeat="roadTrip in myRoadTrips">
+            <div class="content-padding">
+                <a data-ng-href="#/tripdetails/{{roadTrip.id}}" class="btn btn-default form-control"><span class="pull-left">{{roadTrip.name}}</span><i class="glyphicon glyphicon-arrow-right pull-right"></i></a>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="btn-group-justified">
+        <a href="#/home" class="btn btn-default"><i class="fa fa-home"></i> | Home</a>
+        <a href="#/addnewroadtrip" class="btn btn-default"><i class="fa fa-plus"></i> | Add Trip</a>
+        <a href="#/joinRoadTrip" class="btn btn-default"><i class="fa fa-sign-in"></i> | Join </a>
+    </div>
+</nav>
